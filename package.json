@@ -1,0 +1,12 @@
+{
+  "author": {
+    "name": "Sofia Braun",
+    "url": "https://github.com/sofibraun",
+    "email": "sofi.braun@gmail.com"
+  },  
+  "dependencies": {
+    "mime": "1.2.x",
+    "socket.io": "0.9.x"
+  },
+  "main": "app.js"
+}

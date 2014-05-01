@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>User Locations</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed" role="navigation">
+        <div class="container-fluid">        
+            <div class="navbar-header">          
+                <a class="navbar-brand" href="/">User Locations</a>
+            </div>
+            <p id="user-name" class="navbar-text pull-right"></p>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row-fluid" id="user-connect"> 
+            <form class="form-inline" role="form" id="connect">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Your name">
+                </div>              
+                <button type="submit" class="btn btn-primary" id="login">Sign in</button>
+            </form>
+        </div>                 
+        <div class="row-fluid" id="user-connected">             
+            <div id="map-canvas" class="span8" style="min-height: 500px;"></div>
+        </div>  
+        <div class="row-fluid pull-right" id="connected-users">
+            <p>Conected users: <span>0</span></p>
+        </div>          
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="/js/userLocation.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVPtUwnFXt0-wEylg3qIQUaBoS2RAv5CE&sensor=true"></script>
+</body>
+</html>
