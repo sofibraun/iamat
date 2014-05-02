@@ -61,7 +61,7 @@ UserLocation = (function(){
   UserLocation.prototype.initMap = function() {
     var defaultPosition = new google.maps.LatLng(-34.593246, -58.381113);
     var mapOptions = {
-      zoom: 8,
+      zoom: 10,
       center: defaultPosition,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -90,12 +90,23 @@ UserLocation = (function(){
   }
 
   UserLocation.prototype.createMarker = function(lat, lng, title) {
-    return new google.maps.Marker({
+
+    var infowindow = new google.maps.InfoWindow({
+      content: "<p>"+ title + "</p>"
+    });
+
+    var marker = new google.maps.Marker({
       title: title,
       map: this.map,
       position: new google.maps.LatLng(lat,lng),
       animation: google.maps.Animation.DROP
     });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(this.map, marker);
+    });
+
+    return marker;
   }
 
   UserLocation.prototype.geolocate = function() {
