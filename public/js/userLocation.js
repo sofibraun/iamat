@@ -22,7 +22,7 @@ UserLocation = (function(){
   }
 
   UserLocation.prototype.addUser = function(user){
-    if(!this.markers[user.key]) {
+    if(!this.markers[user.key] && user.key != this.user.key) {
       this.updateUsersCount(1);
       this.markers[user.key] = this.createMarker(user.lat, user.lng, user.name);
     }    
