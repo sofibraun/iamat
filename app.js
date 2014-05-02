@@ -80,5 +80,5 @@ webSocket.sockets.on('connection', function(socket) {
   });
 });
 
-httpServer.listen(process.env.PORT || 8080, "localhost");
+httpServer.listen(process.env.PORT || 8080);
 console.log('Server running at 8080');
