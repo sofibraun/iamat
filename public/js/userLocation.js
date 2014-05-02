@@ -48,7 +48,7 @@ UserLocation = (function(){
     if(marker) {
       marker.setPosition(new google.maps.LatLng(data.lat,data.lng));      
     } else {
-      this.markers[data.key] = this.createMarker(data.lat, data.lng, data.name);
+      this.addUser(data);
     }   
   }
 
