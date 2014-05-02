@@ -8,5 +8,10 @@
     "mime": "1.2.x",
     "socket.io": "0.9.x"
   },
-  "main": "app.js"
+  "main": "app.js",
+  "repository": {"url": "https://github.com/ElMassimo/map-chat", "type": "git"},
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.8.x"
+  }
 }
