@@ -1,5 +1,5 @@
 # I am at
-This is an applicaiton made with NodeJS and Socket.io showing the location of other users.
+This is an applicaiton made with NodeJS and Socket.io showing the location of other users signed in.
 ## Installation
 ```
   $ git clone https://github.com/sofibraun/iamat.git
