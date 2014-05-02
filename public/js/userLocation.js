@@ -6,17 +6,17 @@ UserLocation = (function(){
     this.markers = {};
     this.user = {};
     this.user.name = username;
+    this.user.key = Date.now();
     this.socket = socket;
     this.mapContainerId = mapContainerId;
     this.myMarker;
 
+    socket.emit('join', { name : this.user.name, key: this.user.key });
+
     this.initMap();
 
     socket.on('location update', this.updateUser.bind(this));
-    socket.on('user disconnected', this.removeUser.bind(this));
-    socket.emit('join', { name : this.user.name }, function(key){ 
-      this.user.key = key; 
-    }.bind(this));
+    socket.on('user disconnected', this.removeUser.bind(this));    
     socket.emit('request locations', this.loadUsers.bind(this));
 
   }
@@ -79,10 +79,11 @@ UserLocation = (function(){
 
     if (!this.myMarker) {
       this.myMarker = this.createMarker(data.lat, data.lng, 'Me');
+      this.updateUsersCount(1);    
     } else {
       this.myMarker.setPosition(new google.maps.LatLng(data.lat, data.lng));
     }    
-    
+
     this.map.setCenter(this.myMarker.getPosition());
     this.socket.emit("send location", data);
     this.markers[this.user.key] = this.myMarker;

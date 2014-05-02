@@ -44,10 +44,9 @@ if(process.env.NODE_ENV == 'production') {
 
 webSocket.sockets.on('connection', function(socket) {
   
-  socket.on('join', function(user, sendKey) {
-    user.key = Date.now();
+  socket.on('join', function(user) {
     socket.set('userkey', user.key);
-    sendKey(user.key);
+    console.log(user);
     connectedUsers[user.key] = user;
   });
 
